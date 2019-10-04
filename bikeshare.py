@@ -175,7 +175,7 @@ def user_stats(df, city):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-def rawscan(df):
+def display_raw(df):
     """this function takes the selected and filtered dataframe and presents 5 rows by 5 rows until the user asks it to stop
     """
     while True:
@@ -207,7 +207,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df, city)
-        rawscan(df)
+        display_raw(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
