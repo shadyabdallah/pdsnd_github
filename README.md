@@ -24,4 +24,5 @@ Data files used in this project are:
 *User Type
 
 ### Credits
-[Udacity.com]
+All credits goes to [Udacity.com](**Udacity**) for providing the files and the course materials.
+As well as [stackoverflow.com](**stackoverflow**) for being such a helpful community where one can find answers to whichever kind of problem they're facing.
