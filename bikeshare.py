@@ -37,10 +37,15 @@ def get_filters():
             break
         elif city.lower() == 'exit':
             sys.exit('The program is now exiting.....')
-
+    #added extra lines of code to detect the available months within the database and to prevent having an error when a month that is not available is entered.
+    df = pd.read_csv(city)
+    df['Start Time']=pd.to_datetime(df['Start Time'])
+    df['Month']=pd.DatetimeIndex(df['Start Time']).month_name()
+    print("The database has data for the following months only: \n{}." .format(df['Month'].unique()))
+    
     while True:
-        month=input('Please enter a month name (example: January, February, etc..) or type all for no monthly filter or type "exit" to exit the program: ').title()
-        if month in monthslist:
+        month=input("Please choose a month name from the list above, type all for no monthly filter or type 'exit' to exit the program: ").title()
+        if month in monthslist and month in list(df['Month'].unique()):
             month=monthslist.index(month)+1
             break
         elif month.lower() == 'exit':
@@ -48,6 +53,9 @@ def get_filters():
         elif month.lower() == 'all':
             month = 'all'
             break
+        else:
+            print("The month name you have entered is invalid, please try again.")
+
         
     while True:
         day=input('Please enter a day name (example: Monday, Tuesday, etc..) or type all for no monthly filter or type "exit" to exit the program: ').title()
