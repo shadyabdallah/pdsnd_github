@@ -3,6 +3,8 @@ import sys
 import calendar
 import pandas as pd
 
+
+
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -199,6 +201,7 @@ def rawscan(df):
         
 
 def main():
+    """ The main function creates a dataframe that is filtered by the user's input data, then uses this dataframe to provide statistics based on user requests."""
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
